@@ -18,7 +18,6 @@ body, .bulb {
   width: 100%;
   overflow-y: auto;
   border-bottom: 1px solid grey;
-  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
