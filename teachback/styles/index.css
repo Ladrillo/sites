@@ -3,6 +3,10 @@ body {
   border: 1rem solid #00d4585c;
 }
 
+h1  {
+  color: #00953ec2;
+}
+
 #root,
 body, .bulb {
   display: flex;
