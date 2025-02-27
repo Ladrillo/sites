@@ -1,0 +1,45 @@
+body {
+  font-family: sans-serif;
+  border: 1rem solid #00d4585c;
+}
+
+#root,
+body, .bulb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  overflow-y: auto;
+  border-bottom: 1px solid grey;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+button {
+  background-color: #e6e6e6;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.emoji {
+  font-size: 12em;
+}
+
+footer {
+  padding: 1rem;
+}
+
+img {
+  width: 250px;
+}
