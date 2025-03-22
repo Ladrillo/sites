@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    font-family: Calibri, sans-serif;
+}
+
+h1, h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+section {
+    width: 100%;
+    margin: 1rem;
+}
+
+p {
+    padding: 0.5rem
+}
+
+.grupo {
+    max-width: 400px;
+
+    img {
+        width: 100%;
+        border-radius: 8px;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+.descripcion {
+    background-color: #f9f9f9;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+fieldset {
+    margin-top: 0.5rem;
+}
+
+select {
+    height: 2rem;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(0, 116, 188);
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: rgb(0, 90, 145);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button:focus {
+    outline: 2px solid rgb(0, 116, 188);
+    outline-offset: 2px;
+}
+
+#total {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.confirmacion {
+    width: 100%;
+
+    div:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    div:last-of-type {
+        text-align: right;
+    }
+}

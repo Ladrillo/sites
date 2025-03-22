@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>PAC Desarrollo Index</title>
+</head>
+
+<body class="index">
+    <header>
+        <h1>AC/DC</h1>
+        <div class="grupo"><img src="img/grupo.jpeg" alt="Imagen del grupo musical"></div>
+    </header>
+
+    <section class="descripcion">
+        <p>AC/DC es una legendaria banda de rock formada en Australia en 1973, conocida por su energía arrolladora en el
+            escenario y clásicos como Back in Black y Highway to Hell. Su potente sonido, riffs eléctricos y actitud
+            rebelde los han convertido en íconos del hard rock mundial. ¡No te pierdas la oportunidad de verlos en vivo!
+        </p>
+    </section>
+
+    <section>
+        <h2>Próximos Conciertos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lugar</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Precio general</th>
+                    <th>Precio VIP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Madrid</td>
+                    <td>10/05/2025</td>
+                    <td>20:00</td>
+                    <td>60 €</td>
+                    <td>100 €</td>
+                </tr>
+                <tr>
+                    <td>Barcelona</td>
+                    <td>15/06/2025</td>
+                    <td>21:00</td>
+                    <td>70 €</td>
+                    <td>120 €</td>
+                </tr>
+                <tr>
+                    <td>Pamplona</td>
+                    <td>20/07/2025</td>
+                    <td>19:30</td>
+                    <td>50 €</td>
+                    <td>80 €</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Compra de Entradas</h2>
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" type="text" name="nombre" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Evento</legend>
+                <label for="lugar">Lugar y fecha:</label>
+                <select id="lugar" name="lugar" required>
+                    <option value="">---- Seleccionar lugar y fecha ----</option>
+                    <option value="Madrid">Madrid - 10/05/2025</option>
+                    <option value="Barcelona">Barcelona - 15/06/2025</option>
+                    <option value="Pamplona">Pamplona - 20/07/2025</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Entradas</legend>
+                <label for="cantidad">Número de entradas:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="10" required>
+
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="">---- Seleccionar categoría ----</option>
+                    <option value="general">General</option>
+                    <option value="vip">VIP</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Método de pago</legend>
+                <label>
+                    <input type="radio" name="metodo_pago" value="tarjeta" required>
+                    Tarjeta de crédito/débito
+                </label>
+                <label>
+                    <input type="radio" name="metodo_pago" value="paypal">
+                    PayPal
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Confirmación</legend>
+                <label>
+                    <input type="checkbox" required>
+                    Acepto los términos y condiciones
+                </label>
+            </fieldset>
+            <button>Confirmar Compra</button>
+        </form>
+    </section>
+</body>
+
+</html>
