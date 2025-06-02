@@ -1,123 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta U Bingo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        #bingo {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-gap: 10px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .square {
-            background: white;
-            border: 2px solid #ddd;
-            padding: 10px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .prompt {
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-
-        .note {
-            resize: none;
-            width: 100%;
-            height: 50px;
-            font-size: 0.9em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            background: #2196f3;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0b7dda;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meta U Bingo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    #bingo {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 10px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .square {
+      background: white;
+      border: 2px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .prompt {
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+    .note {
+      resize: none;
+      width: 100%;
+      height: 50px;
+      font-size: 0.9em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 4px;
+      box-sizing: border-box;
+      transition: background 0.3s ease;
+    }
+    .note.filled {
+      background: #c8f7c5;
+      border-color: #4caf50;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      background: #2196f3;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0b7dda;
+    }
+  </style>
 </head>
-
 <body>
 
-    <h1>Meta U Bingo</h1>
-    <p>Find a person for each square and write a short note about them!</p>
+  <h1>Meta U Bingo</h1>
+  <p>Find a person for each square and write a short note about them!</p>
 
-    <div id="bingo"></div>
+  <div id="bingo"></div>
 
-    <button id="reset">Clear All Notes</button>
+  <button id="reset">Clear All Notes</button>
 
-    <script>
-        const phrases = [
-            "Has a pet", "Likes pineapple on pizza", "Speaks more than 1 language",
-            "Born the same month as you", "Is not an only child", "Share a favorite book",
-            "Plays a musical instrument", "Not from California", "Share the coolest thing you’ve ever done",
-            "Can name all 5 members of the instructional team (no asking them!)", "Has a June birthday",
-            "Loves spicy food", "Free Space!", "Is a night owl", "Has read a book this past month",
-            "Likes coffee", "Share what you’re looking forward to with another student",
-            "Has visited a national park", "First time in California", "Share something you like to do in your free time",
-            "From another country", "Is an only child", "Wearing the same color as you",
-            "Is an early bird", "Has taken a computer science or coding course"
-        ];
+  <script>
+    const phrases = [
+      "Has a pet", "Likes pineapple on pizza", "Speaks more than 1 language",
+      "Born the same month as you", "Is not an only child", "Share a favorite book",
+      "Plays a musical instrument", "Not from California", "Share the coolest thing you’ve ever done",
+      "Can name all 5 members of the instructional team (no asking them!)", "Has a June birthday",
+      "Loves spicy food", "Free Space!", "Is a night owl", "Has read a book this past month",
+      "Likes coffee", "Share what you’re looking forward to with another student",
+      "Has visited a national park", "First time in California", "Share something you like to do in your free time",
+      "From another country", "Is an only child", "Wearing the same color as you",
+      "Is an early bird", "Has taken a computer science or coding course"
+    ];
 
-        const bingo = document.getElementById('bingo');
+    const bingo = document.getElementById('bingo');
+    const shuffled = phrases.sort(() => 0.5 - Math.random());
 
-        const shuffled = phrases.sort(() => 0.5 - Math.random());
+    shuffled.forEach(phrase => {
+      const square = document.createElement('div');
+      square.className = 'square';
 
-        shuffled.forEach(phrase => {
-            const square = document.createElement('div');
-            square.className = 'square';
+      const prompt = document.createElement('div');
+      prompt.className = 'prompt';
+      prompt.textContent = phrase;
 
-            const prompt = document.createElement('div');
-            prompt.className = 'prompt';
-            prompt.textContent = phrase;
+      const note = document.createElement('textarea');
+      note.className = 'note';
+      note.placeholder = 'Write name or note...';
 
-            const note = document.createElement('textarea');
-            note.className = 'note';
-            note.placeholder = 'Write name or note...';
+      // Add green background on input
+      note.addEventListener('input', () => {
+        if (note.value.trim() !== "") {
+          note.classList.add('filled');
+        } else {
+          note.classList.remove('filled');
+        }
+      });
 
-            square.appendChild(prompt);
-            square.appendChild(note);
-            bingo.appendChild(square);
-        });
+      square.appendChild(prompt);
+      square.appendChild(note);
+      bingo.appendChild(square);
+    });
 
-        document.getElementById('reset').addEventListener('click', () => {
-            document.querySelectorAll('.note').forEach(note => note.value = '');
-        });
-    </script>
+    document.getElementById('reset').addEventListener('click', () => {
+      document.querySelectorAll('.note').forEach(note => {
+        note.value = '';
+        note.classList.remove('filled');
+      });
+    });
+  </script>
 
 </body>
-
 </html>
